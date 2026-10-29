@@ -1,0 +1,219 @@
+:root {
+  --couleur-texte: #1f2a24;
+  --couleur-fond: #f7f8f5;
+  --couleur-carte: #ffffff;
+  --couleur-bordure: #d9ded6;
+  --couleur-accent: #2f6b4f;
+  --couleur-entete-texte: white
+  ;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--couleur-texte);
+  background: var(--couleur-fond);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+}
+
+#root {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header {
+  position: relative;
+  isolation: isolate;
+  padding: 80px 0;
+  color: var(--couleur-entete-texte);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  background:
+    linear-gradient(rgba(10, 20, 15, 0.55), rgba(10, 20, 15, 0.75)),
+    url("./assets/banière.png") center / cover no-repeat;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 8px 0 0;
+  opacity: 0.8;
+}
+
+section {
+  padding: 24px 0;
+}
+
+article {
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 8px;
+  background: var(--couleur-carte);
+  box-shadow: -6px 6px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+article:has(a:hover) {
+  box-shadow: -8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+article:has(a:active) {
+  transform: translate(-4px, 4px);
+  border-color: var(--couleur-accent);
+  box-shadow: inset -4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+article h3 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--couleur-accent);
+}
+
+.liste-projets {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 700px) {
+  .liste-projets {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.entete-contenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.portrait {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid var(--couleur-entete-texte);
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(4) translate(3.6px, 26.4px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.menu a {
+  color: var(--couleur-entete-texte);
+  text-decoration: none;
+  font-family: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.bouton-plus {
+  margin: 16px 0;
+  padding: 10px 20px;
+  font-family: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+  font-size: 1rem;
+  color: #22d3ee;
+  background: #14231b;
+  border: 1px solid #22d3ee;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: -6px 6px 0 rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.bouton-plus:hover {
+  background: #1b3326;
+  box-shadow: -8px 8px 0 rgba(0, 0, 0, 0.45), 0 0 12px rgba(34, 211, 238, 0.5);
+}
+
+.bouton-plus:active {
+  transform: translate(-4px, 4px);
+  background: #0f1a14;
+  box-shadow: inset -4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.bouton-plus:focus-visible {
+  outline: 2px solid #4ade80;
+  outline-offset: 3px;
+}
+
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.galerie-vignette {
+  padding: 0;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 8px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+}
+
+.galerie-vignette img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.galerie-fond {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+.galerie-fond img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+}
