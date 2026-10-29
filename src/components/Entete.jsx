@@ -10,6 +10,10 @@ function Entete() {
         <div>
           <h1>Sylvain Otis</h1>
           <p>Développeur web</p>
+          <ul>
+            <li>Application web et application mobile</li>
+
+          </ul>
         </div>
       </div>
       <nav className="menu">
